@@ -1,0 +1,13 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="t_obiekt",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classt__obiekt.html",tooltip="klasa obsluguje obiekt graficzny "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="t_przeszkoda",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classt__przeszkoda.html",tooltip="definicja klasy obslugujacej przeszkode "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="t_robot",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classt__robot.html",tooltip="klasa obsluguje robota "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="t_sciezka",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classt__sciezka.html",tooltip="klasa obsluguje sciezke "];
+}
