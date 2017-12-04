@@ -2,10 +2,10 @@
 #define MENUH
 
 #include <ncurses.h> // window
-#include <vector>
+#include <memory> // smart_ptr
+#include <vector> // vector
 #include "robot.hpp"
 #include "sciezka.hpp"
-#include <memory>
 
 /*!
  * \file  menu.hpp

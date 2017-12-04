@@ -1,11 +1,10 @@
 #ifndef FIGURAH
 #define FIGURAH
 
-#include <ostream>
-#include <vector>
+#include <ostream> // ostream
+#include <vector> // vector
 #include "wektor.hpp"
 
-using namespace std;
 /*!
  * \file  figura.hpp
  *  

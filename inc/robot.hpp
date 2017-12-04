@@ -1,8 +1,8 @@
 #ifndef ROBOTH
 #define ROBOTH
 
-#include "figura.hpp"
 #include "wektor.hpp"
+#include "figura.hpp"
 #include "obiekt.hpp"
 
 /*!

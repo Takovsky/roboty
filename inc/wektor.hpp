@@ -1,7 +1,7 @@
 #ifndef WEKTORH
 #define WEKTORH
 
-#include <iostream>
+#include <iostream> // ostream, istream
 #include <cmath> // sqrt(),pow()
 #include "macierz.hpp"
 

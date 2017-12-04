@@ -1,4 +1,4 @@
-#include <ostream>
+#include <ostream> // ostream
 #include "wektor.hpp"
 #include "figura.hpp"
 

@@ -1,11 +1,11 @@
 #ifndef FABRYKAH
 #define FABRYKAH
 
-#include <memory>
+#include <memory> // smart ptr
+#include "obiekt.hpp"
 #include "robot.hpp"
 #include "sciezka.hpp"
 #include "przeszkoda.hpp"
-#include "obiekt.hpp"
 
 /*!
  * \brief enum obslugujacy rodzaj obiektu 

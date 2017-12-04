@@ -1,5 +1,4 @@
-#include <cmath>   // sin, cos
-#include <cstring> // strchr()
+#include <cmath>   // sin, cos, PI
 #include "macierz.hpp"
 #include "nazwaosi.hpp"
 

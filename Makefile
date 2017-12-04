@@ -1,7 +1,7 @@
 CPP = g++ -Wall -pedantic -std=c++11 -c -g -Iinc
 
-start: roboty
-	./roboty
+# start: roboty
+# 	./roboty
 
 roboty: obj obj/sciezka.o obj/lacze_do_gnuplota.o obj/robot.o obj/wektor.o obj/main.o obj/przeszkoda.o obj/figura.o  obj/macierz.o obj/scena.o obj/menu.o
 	g++ obj/sciezka.o obj/lacze_do_gnuplota.o obj/robot.o obj/wektor.o obj/main.o obj/przeszkoda.o obj/figura.o obj/macierz.o obj/scena.o obj/menu.o -lncurses -o roboty

@@ -1,11 +1,12 @@
 #ifndef SCENAH
 #define SCENAH
 
-#include <vector>
-#include <memory>
-#include "obiekt.hpp"
+#include <vector> // vector
+#include <memory> // smart_ptr
 #include "wektor.hpp"
+#include "obiekt.hpp"
 #include "robot.hpp"
+#include "sciezka.hpp"
 #include "przeszkoda.hpp"
 
 using namespace std;

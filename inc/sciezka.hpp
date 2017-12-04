@@ -1,8 +1,8 @@
 #ifndef SCIEZKAH
 #define SCIEZKAH
 
-#include "obiekt.hpp"
 #include "wektor.hpp"
+#include "obiekt.hpp"
 /*!
  * \file sciezka.hpp
  *  

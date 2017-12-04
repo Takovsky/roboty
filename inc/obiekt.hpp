@@ -1,7 +1,7 @@
 #ifndef OBIEKTH
 #define OBIEKTH
 
-#include <fstream>
+#include <string>
 #include "figura.hpp"
 
 /*!
@@ -19,7 +19,7 @@
 class t_obiekt
 {
   t_figura _obiekt; // obiekt jest figura
-  string _nazwa; // i ma swoja nazwe
+  string _nazwa;    // i ma swoja nazwe
 
 protected: // protected bo tylko klasy ktore dziedzicza maja miec do tego dostep
   /*!
@@ -44,13 +44,14 @@ protected: // protected bo tylko klasy ktore dziedzicza maja miec do tego dostep
  * \brief destruktor obiektu
  */
   virtual ~t_obiekt() {}
+
 public:
   /*!
  * \brief metoda zwracajaca nazwe obiektu
  */
   string nazwa() const { return _nazwa; }
   /*!
- * \brief metoda zwracajaca wskaznik na figure obiektu
+ * \brief metoda zwracajaca figure obiektu
  */
   t_figura *get() { return &_obiekt; }
   /*!
@@ -64,7 +65,7 @@ public:
   /*!
  * \brief wirtualna metoda zapisujaca obiekt
  */
-  virtual void save() {}
+  virtual void save() = 0;
 };
 
 #endif

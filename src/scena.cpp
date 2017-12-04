@@ -1,7 +1,7 @@
-#include <vector>
-#include "scena.hpp"
-#include "figura.hpp"
+#include <vector> // vector
 #include "wektor.hpp"
+#include "figura.hpp"
+#include "scena.hpp"
 
 void t_scena::przesun(t_wektor W)
 {
@@ -50,8 +50,8 @@ bool t_scena::kolizja(const unsigned int aktywny)
 
 t_scena::~t_scena()
 {
-    for (; przeszkody.size() >= 1;)
+    for (; przeszkody.size() > 0;)
         przeszkody.pop_back();
-    for (; roboty.size() >= 1;)
+    for (; roboty.size() > 0;)
         roboty.pop_back();
 }

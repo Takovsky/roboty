@@ -1,14 +1,12 @@
 #include <cstdlib> // rand()
 #include <cstring> // c_str()
-#include <fstream>
-#include "robot.hpp"
-#include "figura.hpp"
-#include "wektor.hpp"
-#include "obiekt.hpp"
-#include "macierz.hpp"
+#include <fstream> // zapis do pliku
 #include "nazwaosi.hpp"
-
-using namespace std;
+#include "macierz.hpp"
+#include "wektor.hpp"
+#include "figura.hpp"
+#include "obiekt.hpp"
+#include "robot.hpp"
 
 unsigned int t_robot::_ilosc = 0;
 
@@ -21,44 +19,13 @@ t_robot::t_robot() : t_obiekt(string("robot") + char(_ilosc + '1') + string(".da
     _punktzaczepienia(x, y, z);
     _skala = 1;
     _predkosc = 1;
-    _lokalne.push(_punktzaczepienia);
-    _lokalne.push(_punktzaczepienia);
-    _lokalne.push(_punktzaczepienia);
-    _lokalne.push(_punktzaczepienia);
-    _lokalne.push(_punktzaczepienia);
-    _lokalne.push(_punktzaczepienia);
-    _lokalne.push(_punktzaczepienia);
-    _lokalne.push(_punktzaczepienia);
-    _lokalne.push(_punktzaczepienia);
-    _lokalne.push(_punktzaczepienia);
+    for (int i = 0; i < 10; i++)
+        _lokalne.push(_punktzaczepienia);
     resetuj();
     globalne() = _lokalne;
     globalne() = globalne() + _punktzaczepienia;
     save();
 }
-
-// t_robot::t_robot(t_wektor W) : t_obiekt(string("robot") + char(_ilosc + '1') + string(".dat"))
-// {
-
-//     ++_ilosc;
-//     _punktzaczepienia = W;
-//     _skala = 1;
-//     _predkosc = 1;
-//     _lokalne.push(W);
-//     _lokalne.push(W);
-//     _lokalne.push(W);
-//     _lokalne.push(W);
-//     _lokalne.push(W);
-//     _lokalne.push(W);
-//     _lokalne.push(W);
-//     _lokalne.push(W);
-//     _lokalne.push(W);
-//     _lokalne.push(W);
-//     resetuj();
-//     globalne() = _lokalne;
-//     globalne() = globalne() + _punktzaczepienia;
-//     save();
-// }
 
 void t_robot::przesun(t_wektor translacja)
 {
@@ -120,7 +87,7 @@ void t_robot::skaluj()
 {
     t_macierz tmp = _kat;
     t_wektor W = globalne()[0];
-    W = W;
+    // W = W;
     resetuj();
     _kat = tmp;
     for (auto &elem : _lokalne)

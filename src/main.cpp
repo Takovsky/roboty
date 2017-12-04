@@ -1,24 +1,24 @@
 #include <ncurses.h> // obsluga menu
-#include <iostream>  // cerr
 #include <cstring>   // string.c_str()
-#include <vector>    // vector<>
+#include <vector>    // vector
 #include <ctime>     // time(NULL)
 #include <list>      // lista
 #include <memory>    // shared_ptr, unique_ptr
 #include <cstdlib>   // srand()
 #include <unistd.h>  // usleep(), sleep()
-#include "obiekt.hpp"
-#include "figura.hpp"
-#include "robot.hpp"
-#include "wektor.hpp"
-#include "sciezka.hpp"
-#include "lacze_do_gnuplota.hpp"
-#include "przeszkoda.hpp"
-#include "macierz.hpp"
-#include "scena.hpp"
+#include <cmath>     // fmod
 #include "nazwaosi.hpp"
-#include "menu.hpp"
+#include "macierz.hpp"
+#include "wektor.hpp"
+#include "figura.hpp"
+#include "obiekt.hpp"
+#include "robot.hpp"
+#include "sciezka.hpp"
+#include "przeszkoda.hpp"
+#include "scena.hpp"
 #include "fabryka.hpp"
+#include "menu.hpp"
+#include "lacze_do_gnuplota.hpp"
 
 t_fabryka t_fabryka::_fabryka;
 
@@ -111,7 +111,7 @@ int main()
             case ' ':
                 if (aktywnyrobot == roboty.size() + 1)
                 {
-                    roboty.emplace_back(static_pointer_cast<t_robot>(t_fabryka::zbuduj(TO_Robot)), static_pointer_cast<t_sciezka>(t_fabryka::zbuduj(TO_Sciezka))); // dorzuc przeszkode na vector przeszkod
+                    roboty.emplace_back(static_pointer_cast<t_robot>(t_fabryka::zbuduj(TO_Robot)), static_pointer_cast<t_sciezka>(t_fabryka::zbuduj(TO_Sciezka))); // dorzuc robota
                     roboty[roboty.size() - 1].first->save();
                     roboty[roboty.size() - 1].second->push((*roboty[roboty.size() - 1].first)());
                     roboty[roboty.size() - 1].second->save();

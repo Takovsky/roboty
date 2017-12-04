@@ -1,7 +1,7 @@
 #include <ncurses.h> // obsluga menu
 #include <cstring>   // c_str(), strlen()
-#include <vector> 
-#include <memory>
+#include <vector>    // vector
+#include <memory>    // smart ptr
 #include "menu.hpp"
 #include "robot.hpp"
 #include "sciezka.hpp"
@@ -13,30 +13,31 @@ void showinfo(WINDOW *programinfo, bool menu)
     const char *opis2("spacja zatwierdza wybor");           // cd
     const char *opis3(" << MENU");                          // cd
     const char *opis4("ROBOTY >> ");
-    wclear(programinfo);
-    box(programinfo, 0, 0);
+    wclear(programinfo);                                                              // window clear
+    box(programinfo, 0, 0);                                                           // nowy box
     mvwprintw(programinfo, y++, getmaxx(programinfo) / 2 - strlen(opis) / 2, opis);   // printujemy info  o programie
     mvwprintw(programinfo, y++, getmaxx(programinfo) / 2 - strlen(opis2) / 2, opis2); // w zadanym miejscu
     if (menu)
-    {
-        wattron(programinfo, A_BOLD);
-        mvwprintw(programinfo, y + 1, getmaxx(programinfo) / 2 - 12 /* - strlen(opis3) - 2*/, opis3); // w zadanym miejscu
+    {                                                                        // jesli jestesmy w menu obslugi
+        wattron(programinfo, A_BOLD);                                        // pogrubiamy tekst
+        mvwprintw(programinfo, y + 1, getmaxx(programinfo) / 2 - 12, opis3); // w zadanym miejscu
         wattroff(programinfo, A_BOLD);
         mvwprintw(programinfo, y + 1, getmaxx(programinfo) / 2 + 2, opis4); // w zadanym miejscu
     }
     else
-    {
-        wattron(programinfo, A_BOLD);
+    {                                                                       // jesli w menu robotow
+        wattron(programinfo, A_BOLD);                                       // tez pogrubiamy
         mvwprintw(programinfo, y + 1, getmaxx(programinfo) / 2 + 2, opis4); // w zadanym miejscu
         wattroff(programinfo, A_BOLD);
-        mvwprintw(programinfo, y + 1, getmaxx(programinfo) / 2 - 12 /*- strlen(opis3) - 10*/, opis3); // w zadanym miejscu
+        mvwprintw(programinfo, y + 1, getmaxx(programinfo) / 2 - 12, opis3); // w zadanym miejscu
     }
-    mvwprintw(programinfo, y + 1, getmaxx(programinfo) / 2 - 4 /*- strlen(opis3) - 10*/, "      "); // w zadanym miejscu
-    wrefresh(programinfo);
+    mvwprintw(programinfo, y + 1, getmaxx(programinfo) / 2 - 4, "      "); // printujemy separacje
+    wrefresh(programinfo);                                                 // odswiezamy okno
 }
 
 void showmenu(WINDOW *menu, unsigned int aktywny, bool wybrano)
 {
+    // opcje menu
     string opcje[] = {
         "(z) zmiana szybkosci ruchu",
         "(s) zmiana skali robota",
@@ -53,9 +54,9 @@ void showmenu(WINDOW *menu, unsigned int aktywny, bool wybrano)
     int x, y;
     y = 2;
     x = 3;
-    wclear(menu);
-    box(menu, 0, 0);
-    if (wybrano)
+    wclear(menu);    // czyscimy okno
+    box(menu, 0, 0); // nowy box
+    if (wybrano)     // obsluga menu
     {
         y = aktywny;
         if (aktywny > 5)
@@ -66,7 +67,7 @@ void showmenu(WINDOW *menu, unsigned int aktywny, bool wybrano)
             if (aktywny > 8)
                 y++;
         }
-        wattron(menu, A_BOLD);
+        wattron(menu, A_BOLD); // pogrubiamy wybrana opcje
         mvwprintw(menu, y + 1, x, "%s", opcje[aktywny - 1].c_str());
         wattroff(menu, A_BOLD);
     }
@@ -74,7 +75,7 @@ void showmenu(WINDOW *menu, unsigned int aktywny, bool wybrano)
     {
         for (unsigned int i = 0; i < 11; i++)
         {
-            if (y == 7 || y == 9 || y == 12 || y == 15)
+            if (y == 7 || y == 9 || y == 12 || y == 15) // formatowanie menu
                 y++;
             if (aktywny == i + 1)
             {

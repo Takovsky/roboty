@@ -1,8 +1,8 @@
-#include <fstream>
-#include <vector>
+#include <fstream> // zapis do pliku
+#include <vector>  // vector
+#include "wektor.hpp"
+#include "obiekt.hpp"
 #include "sciezka.hpp"
-
-using namespace std;
 
 unsigned int t_sciezka::_ilosc = 0;
 

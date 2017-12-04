@@ -1,11 +1,10 @@
 #include <cstdlib> // rand()
-#include <fstream>
+#include <fstream> // zapis do pliku
+#include "nazwaosi.hpp"
+#include "macierz.hpp"
 #include "obiekt.hpp"
 #include "przeszkoda.hpp"
-#include "macierz.hpp"
-#include "nazwaosi.hpp"
 
-using namespace std;
 
 unsigned int t_przeszkoda::_ilosc = 0;
 
@@ -34,53 +33,6 @@ t_przeszkoda::t_przeszkoda() : t_obiekt(string("przeszkoda") + char(_ilosc + '1'
     save();
     _ilosc++;
 }
-
-// t_przeszkoda::t_przeszkoda(t_wektor tmp, float size) : t_obiekt(string("przeszkoda") + char(_ilosc + '1') + string(".dat"))
-// {
-//     t_wektor W(0, 0, 0);
-//     t_macierz M;
-//     nazwaosi os = osz;
-//     globalne().push(W + (size / 2));
-//     M.Zamien(90, os);
-//     globalne().push(W.obroc(M));
-//     globalne().push(W.obroc(M));
-//     globalne().push(W.obroc(M));
-//     os = osx;
-//     M.Zamien(90, os);
-//     globalne().push(W.obroc(M));
-//     os = osz;
-//     M.Zamien(90, os);
-//     globalne().push(W.obroc(M));
-//     globalne().push(W.obroc(M));
-//     globalne().push(W.obroc(M));
-//     globalne() = globalne() + tmp;
-//     save();
-//     _ilosc++;
-// }
-
-// t_przeszkoda t_przeszkoda::operator()(t_wektor tmp, float size)
-// {
-//     t_wektor W(0, 0, 0);
-//     t_macierz M;
-//     nazwaosi os = osz;
-//     globalne().push(W + (size / 2));
-//     M.Zamien(90, os);
-//     globalne().push(W.obroc(M));
-//     globalne().push(W.obroc(M));
-//     globalne().push(W.obroc(M));
-//     os = osx;
-//     M.Zamien(90, os);
-//     globalne().push(W.obroc(M));
-//     os = osz;
-//     M.Zamien(90, os);
-//     globalne().push(W.obroc(M));
-//     globalne().push(W.obroc(M));
-//     globalne().push(W.obroc(M));
-//     globalne() = globalne() + tmp;
-//     _ilosc++;
-//     save();
-//     return *this;
-// }
 
 void t_przeszkoda::save()
 {

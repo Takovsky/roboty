@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream> // ostream, istream
 #include "wektor.hpp"
 #include "macierz.hpp"
 
@@ -16,33 +16,29 @@ istream &operator>>(istream &strm, t_wektor &W)
 
 t_wektor t_wektor::operator+(t_wektor W)
 {
-    W[0] += _wektor[0];
-    W[1] += _wektor[1];
-    W[2] += _wektor[2];
+    for (int i = 0; i < IL_OSI; i++)
+        W[i] += _wektor[i];
     return W;
 }
 
 t_wektor t_wektor::operator+(float x)
 {
-    _wektor[0] += x;
-    _wektor[1] += x;
-    _wektor[2] += x;
+    for (auto &elem : _wektor)
+        elem += x;
     return *this;
 }
 
 t_wektor t_wektor::operator-(t_wektor W)
 {
-    W[0] = _wektor[0] - W[0];
-    W[1] = _wektor[1] - W[1];
-    W[2] = _wektor[2] - W[2];
+    for (int i = 0; i < IL_OSI; i++)
+        W[i] -= _wektor[i];
     return W;
 }
 
 t_wektor t_wektor::operator*(float x)
 {
-    _wektor[0] *= x;
-    _wektor[1] *= x;
-    _wektor[2] *= x;
+    for (auto &elem : _wektor)
+        elem *= x;
     return *this;
 }
 
